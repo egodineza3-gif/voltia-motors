@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltia Motors | Movemos el Futuro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES DE COLOR OFICIALES --- */
+        :root {
+            --fondo-oscuro: #121920;      
+            --fondo-tarjeta: #18222b;     
+            --azul-voltia: #11385b;       
+            --verde-metalico: #43b049;    
+            --verde-neon: #00ff66;        
+            --blanco: #ffffff;
+            --gris-texto: #a0aab5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--fondo-oscuro);
+            color: var(--blanco);
+            line-height: 1.6;
+        }
+
+        /* --- BARRA DE NAVEGACIÓN --- */
+        header {
+            background-color: rgba(18, 25, 32, 0.95);
+            padding: 20px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--azul-voltia);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-txt {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--blanco);
+            letter-spacing: 1px;
+        }
+
+        .logo-txt span {
+            color: var(--verde-metalico);
+        }
+
+        .slogan-txt {
+            font-size: 10px;
+            color: var(--verde-metalico);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-top: -2px;
+        }
+
+        nav a {
+            color: var(--blanco);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--verde-neon);
+        }
+
+        /* --- SECCIÓN LOGO CORPORATIVO EN GRANDE --- */
+        .identity-container {
+            margin-top: 100px; 
+            padding: 60px 20px 20px 20px;
+            text-align: center;
+            background: radial-gradient(circle, rgba(17,56,91,0.2) 0%, rgba(18,25,32,1) 70%);
+        }
+
+        .main-corporate-logo {
+            max-width: 550px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease;
+        }
+
+        .main-corporate-logo:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- HERO BANNER --- */
+        .hero {
+            height: 45vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(18, 25, 32, 0.6), var(--fondo-oscuro));
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            color: var(--verde-metalico);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin-bottom: 40px;
+            color: var(--gris-texto);
+        }
+
+        .btn-voltia {
+            background-color: var(--verde-metalico);
+            color: var(--blanco);
+            padding: 16px 40px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 176, 73, 0.4);
+        }
+
+        .btn-voltia:hover {
+            background-color: var(--azul-voltia);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(17, 56, 91, 0.6);
+        }
+
+        /* --- SECCIONES --- */
+        section {
+            padding: 80px 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background-color: var(--verde-metalico);
+            margin: 15px auto 0 auto;
+        }
+
+        /* GRID ECOSISTEMA */
+        .grid-eco {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card-eco {
+            background-color: var(--fondo-tarjeta);
+            padding: 40px 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--azul-voltia);
+            transition: all 0.3s;
+        }
+
+        .card-eco:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--verde-neon);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .card-eco h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .card-eco p {
+            color: var(--gris-texto);
+            font-size: 14.5px;
+        }
+
+        /* GRID CATÁLOGO */
+        .grid-catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card-car {
+            background-color: var(--fondo-tarjeta);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(17, 56, 91, 0.3);
+        }
+
+        .car-img-container {
+            width: 100%;
+            height: 240px; 
+            overflow: hidden;
+            background-color: #0b1015;
+        }
+
+        .car-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+
+        .card-car:hover .car-img {
+            transform: scale(1.04);
+        }
+
+        .car-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .car-content h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(160, 170, 181, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .car-content p {
+            color: var(--gris-texto);
+            font-size: 14px;
+            margin-bottom: 25px;
+            min-height: 65px;
+        }
+
+        .car-price {
+            font-size: 26px;
+            color: var(--verde-neon);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .btn-outline {
+            display: block;
+            text-align: center;
+            border: 2px solid var(--azul-voltia);
+            color: var(--blanco);
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--verde-metalico);
+            border-color: var(--verde-metalico);
+            box-shadow: 0 0 10px rgba(67, 176, 73, 0.5);
+        }
+
+        /* TESTIMONIOS */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background-color: rgba(24, 34, 43, 0.6);
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 3px solid var(--verde-metalico);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 14px;
+            color: var(--gris-texto);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .testimonial-role {
+            font-size: 12px;
+            color: var(--verde-metalico);
+        }
+
+        /* SOSTENIBILIDAD */
+        .sustainability-box {
+            background: linear-gradient(135deg, var(--azul-voltia) 0%, var(--fondo-tarjeta) 100%);
+            padding: 50px;
+            border-radius: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+            gap: 30px;
+            border: 1px solid rgba(0, 255, 102, 0.2);
+        }
+
+        .stat-item h3 {
+            font-size: 42px;
+            color: var(--verde-neon);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            max-width: 250px;
+        }
+
+        /* SHOWROOM */
+        .showroom-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .showroom-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .showroom-info p {
+            margin-bottom: 20px;
+            color: var(--gris-texto);
+        }
+
+        .map-container {
+            flex: 1;
+            min-width: 300px;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--azul-voltia);
+        }
+
+        /* FORMULARIO */
+        .form-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: var(--fondo-tarjeta);
+            padding: 45px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(17, 56, 91, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--gris-texto);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--fondo-oscuro);
+            border: 1px solid var(--azul-voltia);
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--verde-neon);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--verde-metalico);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--azul-voltia);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #0b1015;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 2px solid var(--azul-voltia);
+            font-size: 13px;
+            color: var(--gris-texto);
+        }
+
+        footer p {
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 20px; }
+            nav { display: none; }
+            .hero h1 { font-size: 32px; }
+            section { padding: 60px 20px; }
+        }
+
+        .viewer-container {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(
+                135deg,
+                #0b1015,
+                #18222b
+            );
+
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid var(--azul-voltia);
+
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+model-viewer {
+    width: 100%;
+    height: 100%;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <div class="logo-txt">Volt<span>ia</span></div>
+            <div class="slogan-txt">Movemos el futuro</div>
+        </div>
+        <nav>
+            <a href="#identidad">Corporativo</a>
+            <a href="#ecosistema">Ecosistema</a>
+            <a href="#catalogo">Modelos</a>
+            <a href="#testimonios">Reseñas</a>
+            <a href="#showroom">Showroom</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section id="identidad" class="identity-container">
+        <img src="logo.jpg" alt="Logo Corporativo Voltia Motors" class="main-corporate-logo">
+    </section>
+
+    <div class="hero">
+        <h1>Revoluciona tu <span>Camino</span></h1>
+        <p>La combinación perfecta entre ingeniería de software avanzada, torque eléctrico inmediato y autonomía inteligente sin precedentes en el mercado guatemalteco.</p>
+        <a href="#contacto" class="btn-voltia">Agendar Prueba de Manejo</a>
+    </div>
+
+    <section id="ecosistema">
+        <h2 class="section-title">El Ecosistema Voltia</h2>
+        <div class="grid-eco">
+            <div class="card-eco">
+                <h3>🔌 Carga Residencial e Inteligente</h3>
+                <p>Cada vehículo incluye la instalación de un cargador inteligente de alta velocidad en tu residencia y un año de membresía gratis en nuestra red nacional.</p>
+            </div>
+            <div class="card-eco">
+                <h3>💰 Exención Fiscal (Decreto 40-2022)</h3>
+                <p>Aprovecha los marcos legales de movilidad en Guatemala: 0% de IVA en la importación de vehículos eléctricos y exención total del impuesto de primera matrícula.</p>
+            </div>
+            <div class="card-eco">
+                <h3>🛠️ Soporte Técnico de Alto Voltaje</h3>
+                <p>Taller especializado con ingenieros automotrices certificados en gestión de celdas de litio y actualizaciones de firmware vía Over-the-Air (OTA).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="modelo3d">
+    <h2 class="section-title">Explora el Voltia en 3D</h2>
+
+    <div class="viewer-container">
+            <model-viewer
+                src="charlie3.glb"
+                alt="Modelo 3D HOLA"
+                auto-rotate
+                camera-controls
+                shadow-intensity="1"
+                exposure="1"
+                autoplay
+                ar
+            >
+            </model-viewer>
+
+        </div>
+    </section>
+
+    <section id="catalogo">
+        <h2 class="section-title">Catálogo de Vehículos</h2>
+        <div class="grid-catalog">
+            
+            <div class="card-car">
+                <div class="car-img-container">
+                    <img src="nova.png" alt="Voltia Nova" class="car-img">
+                </div>
+                <div class="car-content">
+                    <div>
+                        <h3>Voltia Nova</h3>
+                        <p>Sedán elegante con un coeficiente aerodinámico optimizado. Diseñado meticulosamente para jóvenes profesionales y entornos corporativos urbanos.</p>
+                    </div>
+                    <div>
+                        <div class="car-price">Desde Q315,000</div>
+                        <a href="#contacto" class="btn-outline">Saber Más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-car">
+                <div class="car-img-container">
+                    <img src="terra.png" alt="Voltia Terra" class="car-img">
+                </div>
+                <div class="car-content">
+                    <div>
+                        <h3>Voltia Terra</h3>
+                        <p>La SUV insignia para las familias modernas. Máxima calificación en pruebas de impacto estructural, amplio espacio de equipaje y tracción integral inteligente.</p>
+                    </div>
+                    <div>
+                        <div class="car-price">Desde Q495,000</div>
+                        <a href="#contacto" class="btn-outline">Saber Más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-car">
+                <div class="car-img-container">
+                    <img src="chronos.png" alt="Voltia Chronos" class="car-img">
+                </div>
+                <div class="car-content">
+                    <div>
+                        <h3>Voltia Chronos</h3>
+                        <p>Poder puro y torque instantáneo todo terreno. Chasis de alta resistencia acoplado a un tren motriz dual para máxima capacidad de carga en cualquier geografía.</p>
+                    </div>
+                    <div>
+                        <div class="car-price">Desde Q745,000</div>
+                        <a href="#contacto" class="btn-outline">Saber Más</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="testimonios">
+        <h2 class="section-title">Testimonios y Reseñas</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"La aceleración instantánea y el nulo ruido del motor cambiaron por completo mis viajes diarios de ida y vuelta a la oficina en la ciudad."</p>
+                <div class="testimonial-author">Ing. Alejandro Rodas</div>
+                <div class="testimonial-role">Usuario Voltia Nova</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Instalaron el cargador inteligente en mi casa en un solo día. El ahorro mensual en comparación con la gasolina tradicional superó todas mis expectativas familiares."</p>
+                <div class="testimonial-author">Dra. Mariana Juárez</div>
+                <div class="testimonial-role">Usuario Voltia Terra</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"La robustez del tren motriz eléctrico y la respuesta inmediata del torque bajo carga extrema hacen que trabajar con este vehículo sea un nivel superior de ingeniería."</p>
+                <div class="testimonial-author">Carlos Mendoza</div>
+                <div class="testimonial-role">Empresario / Usuario Chronos</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sostenibilidad">
+        <h2 class="section-title">Sostenibilidad e Impacto</h2>
+        <div class="sustainability-box">
+            <div class="stat-item">
+                <h3>ZERO</h3>
+                <p>Emisiones Directas de Carbono al Medio Ambiente</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Incentivo Fiscal Bajo el Decreto 40-2022 de Guatemala</p>
+            </div>
+            <div class="stat-item">
+                <h3>0 dB</h3>
+                <p>Contaminación Auditiva en Entornos Urbanos</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="showroom">
+        <h2 class="section-title">Showroom Interactivo</h2>
+        <div class="showroom-section">
+            <div class="showroom-info">
+                <h3>Ven a conocer el futuro en persona</h3>
+                <p>Nuestras instalaciones cuentan con bahías de diagnóstico computarizado avanzado, estaciones de carga rápida habilitadas por la CNEE y asesores técnicos listos para estructurar tu cotización.</p>
+                <p><strong>Ubicación Oficial:</strong> 20 Calle, Zona 10, Ciudad de Guatemala (Frente al Centro Comercial Plaza Fontabella).</p>
+                <p><strong>Horarios:</strong> Lunes a Sábado de 8:00 AM a 7:00 PM | Domingos de 10:00 AM a 4:00 PM</p>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=-90.5110%2C14.6000%2C-90.5000%2C14.6100&amp;layer=mapnik&amp;marker=14.6045%2C-90.5055" 
+                    style="border: 0;">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2 class="section-title">Únete a la Evolución</h2>
+        <div class="form-box">
+            <form action="#" method="POST" onsubmit="alert('¡Excelente! Datos registrados con éxito. Un asesor técnico de Voltia Motors se comunicará contigo.'); return false;">
+                <div class="form-group">
+                    <label for="name">Nombre y Apellidos Completos</label>
+                    <input type="text" id="name" required placeholder="Ej. José Carlos Martínez">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" required placeholder="ejemplo@voltia.com.gt">
+                </div>
+                <div class="form-group">
+                    <label for="car">Selecciona tu Modelo de Interés</label>
+                    <select id="car">
+                        <option value="nova">Voltia Nova (Sedán Premium)</option>
+                        <option value="terra">Voltia Terra (SUV Familiar Confort)</option>
+                        <option value="chronos">Voltia Chronos (Extreme Utility / Pickup)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Registro e Iniciar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Concesionaria Voltia Motors S.A.</strong> | PBX: +(502) 2200-VOLT (8658) | info@voltiamotors.com.gt</p>
+        <p>Proyecto Universitario de Emprendimiento y Planificación de Ingeniería - Universidad Mariano Gálvez de Guatemala.</p>
+        <p>&copy; 2026 Voltia Motors S.A. Todos los derechos reservados. Operando bajo las normativas técnicas de la CNEE de la República de Guatemala.</p>
+    </footer>
+
+</body>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script src="index.js"></script>
+</html>
